@@ -9,8 +9,9 @@
 
 import Foundation
 import UIKit
-import RxCocoa
-import RxSwift
+
+@_exported import RxCocoa
+@_exported import RxSwift
 
 let kScreenW = UIScreen.main.bounds.size.width
 

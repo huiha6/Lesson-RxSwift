@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 
 struct MusicListViewModel {
     let data = Observable.just([Music(name: "无条件", singer: "陈奕迅"),

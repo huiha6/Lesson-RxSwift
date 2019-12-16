@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-
 
 //https://www.jianshu.com/p/f61a5a988590
 //http://www.hangge.com/blog/cache/detail_1918.html
@@ -94,12 +91,12 @@ class ViewController: UIViewController {
             print("completed")
         }) {
             print("disposed")
-        }
+        }.disposed(by: disposeBag)
+        
         
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         let ob4 = Observable<Int>.interval(2, scheduler: MainScheduler.instance)
-        ob4.map{$0*11}
-            .bind{
+        ob4.map{$0*11}.bind{
                 [weak self](text) in
                 cell?.textLabel?.text = String(text)
         }.disposed(by: disposeBag)
